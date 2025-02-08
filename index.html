@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數獨求解器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>數獨求解器</h1>
+    <div id="sudoku-container">
+        <form id="sudoku-form">
+            <table>
+                <tbody>
+                    <!-- 這裡將生成 9x9 的數獨輸入框 -->
+                    <tr>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                        <td><input type="number" min="0" max="9" class="sudoku-input"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" id="solveButton">求解</button>
+        </form>
+    </div>
+    <h2>解答</h2>
+    <div id="solution"></div>
+    <script src="app.js"></script>
+</body>
+</html>
